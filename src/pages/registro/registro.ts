@@ -1,5 +1,9 @@
+import { HomePage } from './../home/home';
+import { User } from './../../models/user.interface';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+import { AngularFireAuth } from 'angularfire2/auth';
+
 
 /**
  * Generated class for the RegistroPage page.
@@ -14,8 +18,25 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'registro.html',
 })
 export class RegistroPage {
+  user = {} as User;
+  constructor(private alerta:AlertController,private afAuth: AngularFireAuth,public navCtrl: NavController, public navParams: NavParams) {
+  }
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  async registro(user: User){
+    if(user.email != null && user.password != null){
+      this.afAuth.auth.createUserWithEmailAndPassword(user.email, user.password).then((result) => {
+        console.log(result.uid);
+        if(result){
+          this.navCtrl.setRoot(HomePage);
+        }
+      }, (error) => {
+        this.alerta.create({
+          title:'Error',
+          subTitle:'Ingresar Email y Contraseña',
+          buttons: ['Ok']
+        }).present();
+      })
+    }
   }
 
   ionViewDidLoad() {

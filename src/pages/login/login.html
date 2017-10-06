@@ -17,15 +17,16 @@
   <ion-list>
     
       <ion-item>
-        <ion-label floating>Usuario</ion-label>
-        <ion-input type="text"></ion-input>
+        <ion-label floating>Email</ion-label>
+        <ion-input type="text" [(ngModel)]='user.email'></ion-input>
       </ion-item>
     
       <ion-item>
         <ion-label floating>Contraseña</ion-label>
-        <ion-input type="password"></ion-input>
+        <ion-input type="password" [(ngModel)]='user.password'></ion-input>
       </ion-item>
     </ion-list>
-    <button ion-button block outline color="danger">iniciar sesion</button>
+    <button ion-button block outline color="danger" (click)='login(user)'>Iniciar sesion</button>
+    <button ion-button block icon-only (click)='logearConFacebook()'><ion-icon name="logo-facebook"></ion-icon></button>
     <button ion-button block outline color="dark" (click)="irAlRegistro()">Registrarme</button>
 </ion-content>

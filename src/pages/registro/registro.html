@@ -17,14 +17,14 @@
   <ion-list>
     
       <ion-item>
-        <ion-label floating>Usuario</ion-label>
-        <ion-input type="text"></ion-input>
+        <ion-label floating>Email</ion-label>
+        <ion-input type="text" [(ngModel)]='user.email'></ion-input>
       </ion-item>
     
       <ion-item>
         <ion-label floating>Contraseña</ion-label>
-        <ion-input type="password"></ion-input>
+        <ion-input type="password" [(ngModel)]='user.password'></ion-input>
       </ion-item>
     </ion-list>
-    <button ion-button outline block color="danger">Registrarme</button>
+    <button ion-button outline block color="danger" (click)='registro(user)'>Registrarme</button>
 </ion-content>

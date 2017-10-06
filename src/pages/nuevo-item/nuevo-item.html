@@ -18,13 +18,13 @@
     
       <ion-item>
         <ion-label floating>Item</ion-label>
-        <ion-input type="text"></ion-input>
+        <ion-input type="text" [(ngModel)]='item.itemTitulo'></ion-input>
       </ion-item>
     
       <ion-item>
         <ion-label floating>Descripcion</ion-label>
-        <ion-input type="text"></ion-input>
+        <ion-input type="text" [(ngModel)]='item.itemDescripcion'></ion-input>
       </ion-item>
     </ion-list>
-    <button ion-button outline block color="danger">Crear Item</button>
+    <button ion-button outline block color="danger" (click)='agregarItem(item)'>Crear Item</button>
 </ion-content>

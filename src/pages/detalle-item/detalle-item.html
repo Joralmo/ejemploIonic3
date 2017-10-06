@@ -20,9 +20,12 @@
 
 <ion-content padding>
   <ion-card>
+    <ion-card-header>
+      {{itemTitulo}}
+    </ion-card-header>
     <ion-card-content>
       {{itemDescripcion}}
     </ion-card-content>
   </ion-card>
-  <button ion-button block outline color="danger">Borrar Item</button>
+  <button ion-button block outline color="danger" (click)='eliminarItem()'>Borrar Item</button>
 </ion-content>
